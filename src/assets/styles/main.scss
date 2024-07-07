@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    color: red;
+a {
+    text-decoration: none; /* テキストの下線を削除 */
+    color: inherit; /* テキストの色を親要素から継承 */
 }
