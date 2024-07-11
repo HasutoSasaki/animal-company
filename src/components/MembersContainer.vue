@@ -13,37 +13,50 @@ const membersList = [
         name: 'キリンさん',
         nameSub: 'kirin san',
         business: 'engineer',
-        imagePath: kirinImagePath
+        imagePath: kirinImagePath,
+        skills: ['C言語', 'Ruby'],
+        comment: '首を長くして待ってます！'
     },
     {
         name: '象山 象太郎',
         nameSub: 'zoyama zotaro',
         business: 'engineer',
-        imagePath: elephantImagePath
+        imagePath: elephantImagePath,
+        skills: ['Java', 'Swift'],
+        comment: 'どっしり構えてがんばります。'
+
     },
     {
         name: 'バッファロー中村',
         nameSub: 'buffalo nakamura',
         business: 'engineer',
-        imagePath: buffaloImagePath
+        imagePath: buffaloImagePath,
+        skills: ['HTML/CSS', 'Javascript', 'Vue.js'],
+        comment: '猪突猛進に日々精進'
     },
     {
         name: '鳥',
         nameSub: 'bird',
         business: 'designer',
-        imagePath: penguinImagePath
+        imagePath: penguinImagePath,
+        skills: ['figma', '各種Adobeツール'],
+        comment: '業界のファーストペンギンを目指して日々勉強中です'
     },
     {
         name: 'ハダカデバネズ美',
         nameSub: 'hadakadebanezu-mi',
         business: 'designer',
-        imagePath: mouseImagePath
+        imagePath: mouseImagePath,
+        skills: ['figma'],
+        comment: 'デザインに命かけてます！'
     },
     {
         name: '山本さん',
         nameSub: 'yamamoto',
         business: 'product manager',
-        imagePath: grandpaImagePath
+        imagePath: grandpaImagePath,
+        skills: ['マーケティング', 'ユーザーリサーチ'],
+        comment: '人生経験豊富です'
     }
 ]
 </script>
