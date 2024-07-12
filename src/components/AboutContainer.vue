@@ -3,7 +3,7 @@ import AboutItem from './AboutItem.vue';
 import aboutImage1 from '@/assets/images/aboutSection/image1.png';
 import aboutImage2 from '@/assets/images/aboutSection/image2.png';
 import aboutImage3 from '@/assets/images/aboutSection/image3.png';
-
+import CommonTitle from './CommonTitle.vue';
 const aboutList = [
     {
         title: '技術と創造の森へようこそ！',
@@ -25,7 +25,7 @@ const aboutList = [
 
 <template>
     <div class="about-container">
-        <h2 class="about-title">ABOUT</h2>
+        <CommonTitle title="ABOUT" color="blue" />
         <ul class="about-list">
             <li v-for="(item, index) in aboutList">
                 <AboutItem :itemInfo="item" :isReverse="index % 2 !== 0" />

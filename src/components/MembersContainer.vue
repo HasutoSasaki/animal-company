@@ -7,6 +7,7 @@ import penguinImagePath from '@/assets/images/member/penguin.png'
 import grandpaImagePath from '@/assets/images/member/grandpa.png'
 
 import MembersCard from './MembersCard.vue'
+import CommonTitle from './CommonTitle.vue'
 
 const membersList = [
     {
@@ -63,9 +64,7 @@ const membersList = [
 
 <template>
     <div class="members-container">
-        <h1 class="members-title">
-            MEMBERS
-        </h1>
+        <CommonTitle title="MEMBERS" />
         <ul class="members-card-list">
             <li v-for="(item, index) in membersList" :key="index">
                 <MembersCard :cardInfo="item" />
