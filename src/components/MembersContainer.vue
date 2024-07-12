@@ -81,7 +81,7 @@ const membersList = [
 
 .members-container {
     background-color: $primary-color;
-    height: 984px;
+    height: fit-content;
     text-align: center;
 }
 
