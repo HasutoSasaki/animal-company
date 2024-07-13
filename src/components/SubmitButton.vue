@@ -2,6 +2,7 @@
 //propsの型定義
 interface Props {
     text: string;
+    isActive?: boolean;
 }
 const props = defineProps<Props>();
 
@@ -19,7 +20,7 @@ const clickHandler = (): void => {
 </script>
 
 <template>
-    <button @click="clickHandler" class="common-button">{{ props.text }}</button>
+    <button @click="clickHandler" class="common-button" :disabled="!props.isActive">{{ props.text }}</button>
 </template>
 
 <style scoped lang='scss'>
@@ -30,5 +31,11 @@ const clickHandler = (): void => {
     font-weight: bold;
     color: #fff;
     border: none;
+    cursor: pointer;
+
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
 }
 </style>
