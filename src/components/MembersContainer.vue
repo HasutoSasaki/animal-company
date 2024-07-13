@@ -7,7 +7,6 @@ import penguinImagePath from '@/assets/images/member/penguin.png'
 import grandpaImagePath from '@/assets/images/member/grandpa.png'
 
 import MembersCard from './MembersCard.vue'
-import CommonTitle from './CommonTitle.vue'
 
 const membersList = [
     {
