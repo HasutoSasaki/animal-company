@@ -10,6 +10,7 @@ import '@/assets/styles/main.scss'
 //components
 import CommonTitle from '@/components/CommonTitle.vue'
 import CommonButton from '@/components/CommonButton.vue'
+import CommonLogo from '@/components/CommonLogo.vue'
 
 const app = createApp(App)
 
@@ -18,5 +19,6 @@ app.use(router)
 
 app.component('CommonTitle', CommonTitle)
 app.component('CommonButton', CommonButton)
+app.component('CommonLogo', CommonLogo)
 
 app.mount('#app')
