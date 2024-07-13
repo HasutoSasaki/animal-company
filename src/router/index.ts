@@ -8,15 +8,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'index',
-      component: indexView
+      component: indexView,
+      meta: { title: 'どうぶつパワーシステム' }
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: aboutView
-    }
+
 
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'デフォルトのタイトル'
+  next()
 })
 
 export default router
