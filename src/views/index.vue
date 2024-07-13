@@ -4,6 +4,7 @@ import KeyVisualSlideShow from '@/components/KeyVisualSlideShow.vue'
 import AboutContainer from '@/components/AboutContainer.vue';
 import MembersContainer from '@/components/MembersContainer.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
+import ContactContainer from '@/components/ContactContainer.vue';
 
 </script>
 
@@ -16,6 +17,9 @@ import SectionContainer from '@/components/SectionContainer.vue';
         </SectionContainer>
         <SectionContainer bg-color="blue">
             <MembersContainer />
+        </SectionContainer>
+        <SectionContainer>
+            <ContactContainer />
         </SectionContainer>
     </DefaultLayout>
 </template>
