@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import kirinImagePath from '@/assets/images/member/kirin.png'
 import elephantImagePath from '@/assets/images/member/elephant.png'
 import buffaloImagePath from '@/assets/images/member/buffalo.png'
 import mouseImagePath from '@/assets/images/member/mouse.png'
 import penguinImagePath from '@/assets/images/member/penguin.png'
 import grandpaImagePath from '@/assets/images/member/grandpa.png'
+import kirinFullImagePath from '@/assets/images/member/kirin-full.png'
+import elephantFullImagePath from '@/assets/images/member/elephant-full.png'
+import buffaloFullImagePath from '@/assets/images/member/buffalo-full.png'
+import mouseFullImagePath from '@/assets/images/member/mouse-full.png'
+import penguinFullImagePath from '@/assets/images/member/penguin-full.png'
+import grandpaFullImagePath from '@/assets/images/member/grandpa-full.png'
+
 
 import MembersCard from './MembersCard.vue'
+import MembersCardModal from './MembersCardModal.vue'
 
 const membersList = [
     {
@@ -14,6 +23,7 @@ const membersList = [
         nameSub: 'kirin san',
         business: 'engineer',
         imagePath: kirinImagePath,
+        imageFullPath: kirinFullImagePath,
         skills: ['C言語', 'Ruby'],
         comment: '首を長くして待ってます！'
     },
@@ -22,6 +32,7 @@ const membersList = [
         nameSub: 'zoyama zotaro',
         business: 'engineer',
         imagePath: elephantImagePath,
+        imageFullPath: elephantFullImagePath,
         skills: ['Java', 'Swift'],
         comment: 'どっしり構えてがんばります。'
 
@@ -31,6 +42,7 @@ const membersList = [
         nameSub: 'buffalo nakamura',
         business: 'engineer',
         imagePath: buffaloImagePath,
+        imageFullPath: buffaloFullImagePath,
         skills: ['HTML/CSS', 'Javascript', 'Vue.js'],
         comment: '猪突猛進に日々精進'
     },
@@ -39,6 +51,7 @@ const membersList = [
         nameSub: 'bird',
         business: 'designer',
         imagePath: penguinImagePath,
+        imageFullPath: penguinFullImagePath,
         skills: ['figma', '各種Adobeツール'],
         comment: '業界のファーストペンギンを目指して日々勉強中です'
     },
@@ -47,6 +60,7 @@ const membersList = [
         nameSub: 'hadakadebanezu-mi',
         business: 'designer',
         imagePath: mouseImagePath,
+        imageFullPath: mouseFullImagePath,
         skills: ['figma'],
         comment: 'デザインに命かけてます！'
     },
@@ -55,10 +69,31 @@ const membersList = [
         nameSub: 'yamamoto',
         business: 'product manager',
         imagePath: grandpaImagePath,
+        imageFullPath: grandpaFullImagePath,
         skills: ['マーケティング', 'ユーザーリサーチ'],
         comment: '人生経験豊富です'
     }
 ]
+
+const activeMember = ref<typeof membersList[0] | null>(null)
+
+const openModal = (member: typeof membersList[0]) => {
+    activeMember.value = member
+}
+
+const closeModal = () => {
+    activeMember.value = null
+}
+
+// Watch for changes in activeMember to toggle body scroll
+watch(activeMember, (newVal) => {
+    if (newVal) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+});
+
 </script>
 
 <template>
@@ -66,9 +101,10 @@ const membersList = [
         <CommonTitle title="MEMBERS" />
         <ul class="members-card-list">
             <li v-for="(item, index) in membersList" :key="index">
-                <MembersCard :cardInfo="item" />
+                <MembersCard :cardInfo="item" @click="() => openModal(item)" />
             </li>
         </ul>
+        <MembersCardModal v-if="activeMember" :cardInfo="activeMember" @close="closeModal" />
     </div>
 </template>
 
