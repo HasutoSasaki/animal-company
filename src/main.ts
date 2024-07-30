@@ -8,8 +8,8 @@ import router from './router'
 import '@/assets/styles/main.scss'
 
 //components
-import CommonTitle from '@/components/CommonTitle.vue'
-import CommonLogo from '@/components/CommonLogo.vue'
+import CommonTitle from '@/components/common/CommonTitle.vue'
+import CommonLogo from '@/components/common/CommonLogo.vue'
 
 const app = createApp(App)
 

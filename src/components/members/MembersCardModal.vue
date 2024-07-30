@@ -30,15 +30,15 @@ const closeModal = () => {
             <img :src="cardInfo.imageFullPath" alt="">
             <div class="members-card-modal-wrapper">
                 <p> {{ cardInfo.business }}</p>
-                <h2>{{ cardInfo.name }}</h2>
-                <p>{{ cardInfo.nameSub }}</p>
-                <h3>
+                <h2 class="members-name">{{ cardInfo.name }}</h2>
+                <p class="members-sub-name">{{ cardInfo.nameSub }}</p>
+                <h3 class="members-card-sub-title">
                     スキル
                 </h3>
                 <ul class="skill-list">
                     <li v-for="(skill, index) in cardInfo.skills" :key="index">{{ skill }}</li>
                 </ul>
-                <h3>ひとこと</h3>
+                <h3 class="members-card-sub-title">ひとこと</h3>
                 <p>
                     {{ cardInfo.comment }}
                 </p>
@@ -112,5 +112,25 @@ const closeModal = () => {
 
 .skill-list {
     padding: 0 20px;
+}
+
+.members-name {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.members-sub-name,
+.members-card-sub-title {
+    font-size: 20px;
+}
+
+.members-sub-name {
+    margin-top: 0;
+}
+
+.members-name,
+.members-sub-name,
+.members-card-sub-title {
+    color: $primary-color;
 }
 </style>

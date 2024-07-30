@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { computed, ref } from 'vue'
-import FormInput from './FormInput.vue';
-import FormTextarea from './FormTextarea.vue';
+import FormInput from '@/components/form/FormInput.vue';
+import FormTextarea from '@/components/form/FormTextarea.vue';
 import SubmitButton from '@/components/SubmitButton.vue'
 
 
