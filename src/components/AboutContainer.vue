@@ -26,7 +26,7 @@ const aboutList = [
     <div class="about-container">
         <CommonTitle title="ABOUT" color="blue" />
         <ul class="about-list">
-            <li v-for="(item, index) in aboutList">
+            <li v-for="(item, index) in aboutList" :key="index">
                 <AboutItem :itemInfo="item" :isReverse="index % 2 !== 0" />
             </li>
         </ul>
