@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import indexView from '../views/index.vue'
 import aboutView from '../views/about/index.vue'
 
+// `vue-router` モジュール内の型定義を拡張します。
 declare module 'vue-router' {
   interface RouteMeta {
     title?: string;
