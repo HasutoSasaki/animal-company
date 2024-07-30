@@ -15,7 +15,7 @@ const props = defineProps<Props>();
 
 <template>
     <div class="members-card">
-        <img :src="cardInfo.imagePath" alt="">
+        <img :src="cardInfo.imagePath" :alt="cardInfo.name" loading="lazy">
         <p>{{ cardInfo.business }}</p>
         <h3 class="members-card-title">{{ cardInfo.name }}</h3>
         <p class="members-card-sub-title">{{ cardInfo.nameSub }}</p>

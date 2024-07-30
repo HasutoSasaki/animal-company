@@ -27,7 +27,7 @@ const closeModal = () => {
     <div class="modal-backdrop" @click="closeModal">
         <div class="members-card-modal" @click.stop>
             <button class="close-button" @click="closeModal" />
-            <img :src="cardInfo.imageFullPath" alt="">
+            <img :src="cardInfo.imageFullPath" :alt="cardInfo.name" loading="lazy">
             <div class="members-card-modal-wrapper">
                 <p> {{ cardInfo.business }}</p>
                 <h2 class="members-name">{{ cardInfo.name }}</h2>

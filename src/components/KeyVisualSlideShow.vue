@@ -56,7 +56,7 @@ onMounted(() => {
     <div class="slide-show">
         <div class="slide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
             <div class="slide" v-for="(image, index) in images" :key="index">
-                <img class="slide-show-img" :src="image.path" :alt="image.alt">
+                <img class="slide-show-img" :src="image.path" :alt="image.alt" loading="lazy">
             </div>
         </div>
         <div class="dots-container">

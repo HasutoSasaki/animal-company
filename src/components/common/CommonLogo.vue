@@ -21,7 +21,7 @@ const getLogoPath = (): string => {
 
 <template>
     <p class="common-logo">
-        <img class="common-logo-icon" :src="getLogoPath()" alt="会社のロゴ">
+        <img class="common-logo-icon" :src="getLogoPath()" alt="会社のロゴ" loading="lazy">
     </p>
 </template>
 
