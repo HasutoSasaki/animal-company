@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect, onMounted } from 'vue'
+import { ref, watchEffect, onMounted, computed } from 'vue'
 import pandaImagePath from '@/assets/images/slideShow/panda.jpg'
 import tigerImagePath from '@/assets/images/slideShow/tiger.jpg'
 import foxImagePath from '@/assets/images/slideShow/fox.jpg'
@@ -29,6 +29,12 @@ const images = ref([
 
 ]);
 
+const startX = ref(0)
+const currentX = ref(0)
+const isDragging = ref(false)
+
+const currentPosition = computed(() => -currentIndex.value * window.innerWidth);
+
 const currentIndex = ref(0)
 //dotsにはimagesの配列からkeyだけを入れたい。
 const dots = ref(images.value.map((_, index) => ({
@@ -37,12 +43,44 @@ const dots = ref(images.value.map((_, index) => ({
 })));
 
 function setCurrentIndex(index: number) {
-    currentIndex.value = index;
+    currentIndex.value = (index + images.value.length) % images.value.length;
+    updateDots();
+}
+function updateDots() {
     dots.value.forEach((dot, i) => {
-        dot.active = i === index;
+        dot.active = i === currentIndex.value;
     });
 }
 
+const handleStart = (event: number) => {
+    startX.value = event;
+    isDragging.value = true;
+    console.log('handleStart:', startX.value, currentX.value)
+}
+
+const handleMove = (event: number) => {
+    if (!isDragging.value) return;
+    currentX.value = event;
+    console.log('handleMove:', currentX.value)
+}
+
+const handleEnd = () => {
+    if (!isDragging.value) return;
+    const swipeDistance = startX.value - currentX.value;
+
+    if (Math.abs(swipeDistance) > 50) {
+        setCurrentIndex(currentIndex.value + (swipeDistance > 0 ? 1 : -1));
+    }
+    isDragging.value = false;
+}
+
+const touchStart = (event: TouchEvent) => handleStart(event.touches[0].clientX);
+const touchMove = (event: TouchEvent) => handleMove(event.touches[0].clientX);
+const touchEnd = () => handleEnd();
+
+const mouseDown = (event: MouseEvent) => handleStart(event.clientX);
+const mouseMove = (event: MouseEvent) => handleMove(event.clientX);
+const mouseUp = () => handleEnd();
 
 
 onMounted(() => {
@@ -53,7 +91,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="slide-show">
+    <div class="slide-show" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @mousedown="mouseDown"
+        @mousemove="mouseMove" @mouseup="mouseUp" @mouseleave="mouseUp">
         <div class="slide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
             <div class="slide" v-for="(image, index) in images" :key="index">
                 <img class="slide-show-img" :src="image.path" :alt="image.alt">
@@ -71,6 +110,7 @@ onMounted(() => {
     width: 100%;
     height: calc(100vh - 100px);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .slide-container {
