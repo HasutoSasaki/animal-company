@@ -11,6 +11,12 @@ const router = createRouter({
       component: indexView,
       meta: { title: 'どうぶつパワーシステム' }
     },
+    {
+      path: '/about',
+      name: 'about',
+      component: aboutView,
+      meta: { title: 'aboutページ' }
+    },
 
 
   ]
