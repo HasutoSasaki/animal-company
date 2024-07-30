@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AboutItem from './AboutItem.vue';
+import AboutItem from '@/components/about/AboutItem.vue';
 import aboutImage1 from '@/assets/images/aboutSection/image1.png';
 import aboutImage2 from '@/assets/images/aboutSection/image2.png';
 import aboutImage3 from '@/assets/images/aboutSection/image3.png';
