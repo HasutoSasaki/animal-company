@@ -12,6 +12,8 @@ interface Props {
 }
 const props = defineProps<Props>()
 
+//emitsの型定義について
+//https://ja.vuejs.org/guide/typescript/composition-api.html#typing-component-emits
 interface Emits {
     (event: 'close'): void
 }
