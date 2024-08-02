@@ -10,16 +10,5 @@ import ContactContainer from '@/components/ContactContainer.vue';
 
 
 <template>
-    <DefaultLayout>
-        <KeyVisualSlideShow />
-        <SectionContainer>
-            <AboutContainer />
-        </SectionContainer>
-        <SectionContainer bg-color="blue">
-            <MembersContainer />
-        </SectionContainer>
-        <SectionContainer>
-            <ContactContainer />
-        </SectionContainer>
-    </DefaultLayout>
+
 </template>

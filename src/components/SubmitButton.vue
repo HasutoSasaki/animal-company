@@ -1,26 +1,10 @@
 <script setup lang='ts'>
-//propsの型定義
-interface Props {
-    text: string;
-    isActive?: boolean;
-}
-const props = defineProps<Props>();
 
-//emitの型定義
-interface Emits {
-    (event: 'click'): void;
-}
-const emit = defineEmits<Emits>();
-
-const clickHandler = (): void => {
-    // emitイベントを発火する
-    emit('click');
-}
 
 </script>
 
 <template>
-    <button @click="clickHandler" class="common-button" :disabled="!props.isActive">{{ props.text }}</button>
+
 </template>
 
 <style scoped lang='scss'>

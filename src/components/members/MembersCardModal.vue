@@ -1,52 +1,9 @@
 <script setup lang="ts">
-interface Props {
-    cardInfo: {
-        name: string,
-        nameSub: string,
-        business: string,
-        imagePath: string,
-        imageFullPath: string,
-        skills: string[],
-        comment: string
-    }
-}
-const props = defineProps<Props>()
 
-//emitsの型定義について
-//https://ja.vuejs.org/guide/typescript/composition-api.html#typing-component-emits
-interface Emits {
-    (event: 'close'): void
-}
-const emit = defineEmits<Emits>()
-
-
-const closeModal = () => {
-    emit('close')
-}
 </script>
 
 <template>
-    <div class="modal-backdrop" @click="closeModal">
-        <div class="members-card-modal" @click.stop>
-            <button class="close-button" @click="closeModal" />
-            <img :src="cardInfo.imageFullPath" :alt="cardInfo.name" loading="lazy">
-            <div class="members-card-modal-wrapper">
-                <p> {{ cardInfo.business }}</p>
-                <h2 class="members-name">{{ cardInfo.name }}</h2>
-                <p class="members-sub-name">{{ cardInfo.nameSub }}</p>
-                <h3 class="members-card-sub-title">
-                    スキル
-                </h3>
-                <ul class="skill-list">
-                    <li v-for="(skill, index) in cardInfo.skills" :key="index">{{ skill }}</li>
-                </ul>
-                <h3 class="members-card-sub-title">ひとこと</h3>
-                <p>
-                    {{ cardInfo.comment }}
-                </p>
-            </div>
-        </div>
-    </div>
+
 </template>
 
 <style scoped lang="scss">

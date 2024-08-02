@@ -1,64 +1,9 @@
 <script setup lang="ts">
-import { ref, watchEffect, onMounted } from 'vue'
-import pandaImagePath from '@/assets/images/slideShow/panda.jpg'
-import tigerImagePath from '@/assets/images/slideShow/tiger.jpg'
-import foxImagePath from '@/assets/images/slideShow/fox.jpg'
-import squirrelImagePath from '@/assets/images/slideShow/squirrel.jpg'
-
-const images = ref([
-    {
-        key: 'panda',
-        path: pandaImagePath,
-        alt: 'パンダの写真'
-    },
-    {
-        key: 'tiger',
-        path: tigerImagePath,
-        alt: '虎の写真'
-    },
-    {
-        key: 'fox',
-        path: foxImagePath,
-        alt: '狐の写真'
-    },
-    {
-        key: 'squirrel',
-        path: squirrelImagePath,
-        alt: 'りすの写真'
-    },
-
-]);
-
-const currentIndex = ref(0);
-
-// dotsには画像の数だけnullの値を入れる
-const dots = ref(new Array(images.value.length).fill(null));
-
-function setCurrentIndex(index: number) {
-    currentIndex.value = index;
-}
-
-
-
-onMounted(() => {
-    console.log('mount')
-})
-
 
 </script>
 
 <template>
-    <div class="slide-show">
-        <div class="slide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-            <div class="slide" v-for="(image, index) in images" :key="index">
-                <img class="slide-show-img" :src="image.path" :alt="image.alt" loading="lazy">
-            </div>
-        </div>
-        <div class="dots-container">
-            <span v-for="(dot, index) in dots" :key="index" :class="{ active: index === currentIndex }"
-                @click="setCurrentIndex(index)"></span>
-        </div>
-    </div>
+
 </template>
 
 <style scoped lang="scss">

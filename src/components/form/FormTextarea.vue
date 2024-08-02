@@ -1,14 +1,9 @@
 <script setup lang='ts'>
-interface Props {
-    label: string;
-    placeholder: string;
-}
-const props = defineProps<Props>();
+
 </script>
 
 <template>
-    <label class="label" for="">{{ props.label }}</label>
-    <textarea class="textarea" name="" id="" :placeholder="props.placeholder"></textarea>
+
 </template>
 
 <style scoped lang='scss'>

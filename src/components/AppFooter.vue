@@ -3,9 +3,6 @@
 </script>
 
 <template>
-    <footer class="footer">
-        <CommonLogo logo-color='white' />
-    </footer>
 </template>
 
 <style scoped lang='scss'>

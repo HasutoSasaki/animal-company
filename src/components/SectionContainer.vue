@@ -1,15 +1,9 @@
 <script setup lang="ts">
-interface Props {
-    bgColor?: string;
-}
 
-const props = defineProps<Props>();
 
 </script>
 <template>
-    <div class="section-container" :class="`bg-${bgColor}`">
-        <slot />
-    </div>
+
 </template>
 
 <style scoped lang="scss">
