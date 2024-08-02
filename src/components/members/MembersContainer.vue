@@ -14,8 +14,8 @@ import penguinFullImagePath from '@/assets/images/member/penguin-full.png'
 import grandpaFullImagePath from '@/assets/images/member/grandpa-full.png'
 
 
-import MembersCard from './MembersCard.vue'
-import MembersCardModal from './MembersCardModal.vue'
+import MembersCard from '@/components/members/MembersCard.vue'
+import MembersCardModal from '@/components/members/MembersCardModal.vue'
 
 const membersList = [
     {

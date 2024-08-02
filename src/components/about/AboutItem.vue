@@ -15,7 +15,7 @@ const props = defineProps<Props>()
 
 <template>
     <div class="about-item" :class="{ reverse: isReverse }">
-        <img class="about-item-img" :src="itemInfo.path" :alt="itemInfo.title">
+        <img class="about-item-img" :src="itemInfo.path" :alt="itemInfo.title" loading="lazy">
         <div class="about-item-text-are">
             <h3 class="about-item-title">
                 {{ itemInfo.title }}

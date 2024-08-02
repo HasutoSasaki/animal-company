@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AboutItem from './AboutItem.vue';
+import AboutItem from '@/components/about/AboutItem.vue';
 import aboutImage1 from '@/assets/images/aboutSection/image1.png';
 import aboutImage2 from '@/assets/images/aboutSection/image2.png';
 import aboutImage3 from '@/assets/images/aboutSection/image3.png';
@@ -26,7 +26,7 @@ const aboutList = [
     <div class="about-container">
         <CommonTitle title="ABOUT" color="blue" />
         <ul class="about-list">
-            <li v-for="(item, index) in aboutList">
+            <li v-for="(item, index) in aboutList" :key="index">
                 <AboutItem :itemInfo="item" :isReverse="index % 2 !== 0" />
             </li>
         </ul>

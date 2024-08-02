@@ -29,18 +29,13 @@ const images = ref([
 
 ]);
 
-const currentIndex = ref(0)
-//dotsにはimagesの配列からkeyだけを入れたい。
-const dots = ref(images.value.map((_, index) => ({
-    active: index === currentIndex.value,
-    onClick: () => setCurrentIndex(index)
-})));
+const currentIndex = ref(0);
+
+// dotsには画像の数だけnullの値を入れる
+const dots = ref(new Array(images.value.length).fill(null));
 
 function setCurrentIndex(index: number) {
     currentIndex.value = index;
-    dots.value.forEach((dot, i) => {
-        dot.active = i === index;
-    });
 }
 
 
@@ -56,11 +51,12 @@ onMounted(() => {
     <div class="slide-show">
         <div class="slide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
             <div class="slide" v-for="(image, index) in images" :key="index">
-                <img class="slide-show-img" :src="image.path" :alt="image.alt">
+                <img class="slide-show-img" :src="image.path" :alt="image.alt" loading="lazy">
             </div>
         </div>
         <div class="dots-container">
-            <span v-for="(dot, index) in dots" :key="index" :class="{ active: dot.active }" @click="dot.onClick"></span>
+            <span v-for="(dot, index) in dots" :key="index" :class="{ active: index === currentIndex }"
+                @click="setCurrentIndex(index)"></span>
         </div>
     </div>
 </template>

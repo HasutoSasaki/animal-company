@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import FormContainer from './FormContainer.vue'
+import FormContainer from '@/components/form/FormContainer.vue'
 
 </script>
 

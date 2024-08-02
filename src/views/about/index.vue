@@ -1,10 +1,12 @@
 <script setup lang="ts">
-
+import AboutLayout from '@/layouts/AboutLayout.vue';
 
 </script>
 
 <template>
-    <div>
-        <p>a</p>
-    </div>
+    <AboutLayout>
+        <div>
+            <h1>aboutページですよ</h1>
+        </div>
+    </AboutLayout>
 </template>

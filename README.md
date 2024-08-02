@@ -1,45 +1,52 @@
-# animal-company
+# Vue.js プロジェクトの立ち上げマニュアル
 
-This template should help get you started developing with Vue 3 in Vite.
+このドキュメントでは、Vue.jsプロジェクトの立ち上げから始まるまでのステップバイステップのガイドを提供します。
 
-## Recommended IDE Setup
+## 必要条件
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Node.js (バージョン 12.x 以上)
+- npm (Node Package Manager)
 
-## Type Support for `.vue` Imports in TS
+## プロジェクトのセットアップ
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+1.  **Node.js と npm のインストール**
 
-## Customize configuration
+    - [Node.js](https://nodejs.org/) を公式サイトからダウンロードし、インストールしてください。こだわりがなければ最新版で良いかと思います。
+    - インストール後、ターミナルで `node -v` と `npm -v` を実行して、正しくインストールされたか確認してください。
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+2.  **Vueのインストール**
 
-## Project Setup
+    - ターミナルを開き、以下のコマンドを実行して Vue をインストールしてください。
 
-```sh
-npm install
-```
+      ```shell
+      $ npm create vue@latest
+      ```
 
-### Compile and Hot-Reload for Development
+      ```shell
+      ✔ Project name: … <your-project-name>
+      ✔ Add TypeScript? … No / 'Yes'
+      ✔ Add JSX Support? … 'No' / Yes
+      ✔ Add Vue Router for Single Page Application development? … No / 'Yes'
+      ✔ Add Pinia for state management? … 'No' / Yes
+      ✔ Add Vitest for Unit testing? … 'No' / Yes
+      ✔ Add an End-to-End Testing Solution? … 'No' / Cypress / Nightwatch / Playwright
+      ✔ Add ESLint for code quality? … No / 'Yes'
+      ✔ Add Prettier for code formatting? … No / 'Yes'
+      ✔ Add Vue DevTools 7 extension for debugging? 　(experimental) … No / 'Yes'
 
-```sh
-npm run dev
-```
+      Scaffolding project in ./<your-project-name>...
+      Done.
+      ```
 
-### Type-Check, Compile and Minify for Production
+    - インストールができたら、ローカルサーバーを立ち上げよう
 
-```sh
-npm run build
-```
+      ```shell
+      $ cd <your-project-name>
+      $ npm install
+      $ npm run dev
+      ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+3.  sassのインストール
+    - ```sh
+      $ npm install sass
+      ```
